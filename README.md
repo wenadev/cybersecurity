@@ -1,27 +1,19 @@
 <!-- GETTING STARTED -->
-## Getting Started
+## Keylogger
+The code keeps track of every key pressed by user and sends the captured log to a specified email after a minimum of 40 characters have been inputted. 
 
-To get a local copy up and running follow these simple steps.
+# Installation
+To get the code running, type the following in your terminal, command prompt or equivalent
 
-### Installation
- 
 ```sh
-$ git clone https://github.com/2stobank/2sto-web
-$ yarn
-$ yarn start
-
-# Load the site at localhost:3000/
+python -m pip install pynput
 ```
 
 <!-- CONTRIBUTING -->
-## Contributing
-
-1. Create your Branch (`git checkout -b myCode`)
-2. Commit your Changes (`git commit -m 'Adding some Code'`)
-3. Push to the Branch (`git push origin myCOde`)
-4. Open a Pull Request to Main
+## Keylogger
 
 ### Built With
 
-* [React](https://reactjs.org/)
-* [Create React App](https://github.com/facebook/create-react-app)
+* [Python](https://reactjs.org/)
+* [GetPass](https://docs.python.org/3/library/getpass.html)
+* [Pynput](https://docs.python.org/3/library/smtplib.html)
