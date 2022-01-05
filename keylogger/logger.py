@@ -70,7 +70,7 @@ def create_word(keys):
                 phrase += k
 
 # get key 
-def on_press(key):
+def on_press(key): 
     global keys, count
  
     keys.append(key)
