@@ -1,6 +1,6 @@
 <!-- GETTING STARTED -->
 ## Keylogger
-The code keeps track of every key pressed by user and sends the captured log of meaningful text to a specified email after a minimum of 40 characters have been inputted. 
+The code keeps track of every key pressed by the user and sends the captured log of meaningful text to a specified email after a minimum of 40 characters have been inputted. 
 
 # Installation
 To get the code running, type the following in your terminal, command prompt or equivalent
