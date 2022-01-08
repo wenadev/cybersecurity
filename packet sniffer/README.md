@@ -1,17 +1,13 @@
 <!-- GETTING STARTED -->
-## Getting Started
+## Packet Sniffer
 
-To get a local copy up and running follow these simple steps.
+The code captures a network IP packet and unpacks it from it bytes form to translate the header information into human-readable text.
 
-### Installation
+This [link](https://study-ccna.com/ip-header/) shows the breakdown of the information contained in an IP header and the byte values of each.
+
+### Running the code
  
-```sh
-$ git clone https://github.com/2stobank/2sto-web
-$ yarn
-$ yarn start
-
-# Load the site at localhost:3000/
-```
+Run the python code in your terminal as an Adminstrator to establish a socket permission with right access permissions.
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -23,5 +19,6 @@ $ yarn start
 
 ### Built With
 
-* [React](https://reactjs.org/)
-* [Create React App](https://github.com/facebook/create-react-app)
+* [Python](https://www.python.org/)
+* [Struct](https://docs.python.org/3/library/struct.html)
+* [Socket](https://docs.python.org/3/library/socket.html)
