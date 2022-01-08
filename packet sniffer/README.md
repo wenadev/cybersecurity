@@ -9,14 +9,6 @@ This [link](https://study-ccna.com/ip-header/) shows the breakdown of the inform
  
 Run the python code in your terminal as an Adminstrator to establish a socket permission with right access permissions.
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-1. Create your Branch (`git checkout -b myCode`)
-2. Commit your Changes (`git commit -m 'Adding some Code'`)
-3. Push to the Branch (`git push origin myCOde`)
-4. Open a Pull Request to Main
-
 ### Built With
 
 * [Python](https://www.python.org/)
