@@ -1,16 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jan  5 22:58:01 2022
-
-@author: Temitayo
-"""
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan  2 20:05:05 2022
-
-@author: Temitayo
-"""
-
 import socket
 import struct
 import sys
@@ -137,9 +124,6 @@ s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 #get IP header data
 data = getData((s))
 
-print(data[8], data[9])
-
-'''
 print("Captured packet")
 print("----------------")
 print ("Version:\t\t",  str(main(data)[0]))
@@ -155,10 +139,3 @@ print ("Checksum:\t\t", str(main(data)[9]))
 print ("Source:\t\t\t", str(main(data)[10]))
 print ("Destination:\t\t", str(main(data)[11]))
 print ("Payload:\n", data[20:])
-
-'''
-
-
-
-
-
