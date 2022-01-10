@@ -1,3 +1,16 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan  5 22:58:01 2022
+
+@author: Temitayo
+"""
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan  2 20:05:05 2022
+
+@author: Temitayo
+"""
+
 import socket
 import struct
 import sys
@@ -27,10 +40,10 @@ def diff_services(u_data):
     precedence = {0: "Routine", 1: "Priority", 2: "Immediate", 3: "Flash", 
                   4: "Flash override", 5: "CRITIC/ECP", 6: "Internetwork control", 
                   7: "Network control"}
-    delay = {0: "Normal delay", 1: "Low delay"}
-    throughput = {0: "Normal throughput", 1: "High throughput"}
-    reliability = {0: "Normal reliability", 1: "High reliability"}
-    monetary = {0: "Normal monetary cost", 1: "Minimize monetary cost"}
+    delay = {0: " Normal delay", 1: " Low delay"}
+    throughput = {0: " Normal throughput", 1: " High throughput"}
+    reliability = {0: " Normal reliability", 1: " High reliability"}
+    monetary = {0: " Normal monetary cost", 1: " Minimize monetary cost"}
     
     P = u_data >> 5
     
@@ -67,18 +80,15 @@ def flags_fragment(u_data):
     
     return flagR[R] + "\n\t\t\t" + flagDF[DF] + '\n\t\t\t' + flagMF[MF], fragment
 
-def protocol(u_data):
+def find_protocol(u_data):
     file = open('protocol.txt', 'r')
-    p = file.read()
-    protocol = re.findall(r'\9n', str(u_data) +'(?:.)+\n', p)
-
-    if protocol:
-        protocol == protocol[0]
-        protocol = protocol.replace('\n','')
-        protocol = protocol.replace(str(u_data), '')
-        protocol = protocol.lstrip()
+    proto = re.findall(r'\n' + str(u_data) + ' (?:.)+\n', file.read())[0]
+    
+    if proto:
+        proto = proto.replace("\n", "")
+        proto = proto.replace(str(u_data), "")
         
-        return protocol
+        return proto.lstrip()
     
     else:
         return "Did not find any protocol"
@@ -103,10 +113,11 @@ def main(d):
     identification = unpacked[3]
     flags, fragment_offset = flags_fragment(unpacked[4])
     ttl = unpacked[5]
-    proto = protocol(unpacked[6])
+    protocol = find_protocol(unpacked[6])
     checksum= unpacked[7]
-    source_IP = socket.inet_ntoa(unpacked[8])
-    dest_IP = socket.inet_ntoa(unpacked[9])
+    #formats the byte form of source and target address and joins the data with decimal point
+    source_IP = '.'.join(map(str, unpacked[8]))
+    dest_IP = '.'.join(map(str, unpacked[9]))
      
     return version, header_length, services, total_length, identification, flags, fragment_offset, ttl, protocol, checksum, source_IP, dest_IP
 
@@ -124,18 +135,24 @@ s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 #get IP header data
 data = getData((s))
 
+
 print("Captured packet")
-print("----------------")
-print ("Version:\t\t",  str(main(data)[0]))
+print("-----------------------------------")
+print ("Version:\t\t ",  str(main(data)[0]))
 print ("Header Length:\t\t", str(main(data)[1]), " bytes")
 print ("Type of Service:\t", str(main(data)[2]))
 print("Size/Total Length:\t", str(main(data)[3]))
 print ("ID:\t\t\t", str(main(data)[4]))
 print ("Flags:\t\t\t", str(main(data)[5]))
 print ("Fragment offset:\t", str(+main(data)[6]))
-print ("TTL:\t\t\t", str(+main(data)[7]))
-print ("Protocol:\t\t", str(+main(data)[8]))
-print ("Checksum:\t\t", str(main(data)[9]))
+print ("TTL:\t\t\t", str(main(data)[7]))
+print ("Protocol:\t\t", str(main(data)[8]))
+print ("Header Checksum:\t", str(main(data)[9]))
 print ("Source:\t\t\t", str(main(data)[10]))
 print ("Destination:\t\t", str(main(data)[11]))
 print ("Payload:\n", data[20:])
+
+
+
+
+
