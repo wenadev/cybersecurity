@@ -1,16 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jan  5 22:58:01 2022
-
-@author: Temitayo
-"""
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan  2 20:05:05 2022
-
-@author: Temitayo
-"""
-
 import socket
 import struct
 import sys
